@@ -1,6 +1,10 @@
 package models
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
+import (
+    "time"
+
+    "go.mongodb.org/mongo-driver/bson/primitive"
+)
 
 type Message struct {
     ID              primitive.ObjectID `bson:"_id,omitempty"`
@@ -12,6 +16,6 @@ type Message struct {
 	QuotedMessageID string `json:"quotedMessageId" bson:"quotedMessageId"`
 	QuoteToken      string `json:"quoteToken" bson:"quoteToken"`
 	Text            string `json:"text" bson:"text"`
-	Timestamp       int64  `json:"timestamp" bson:"timestamp"`
+	Timestamp       time.Time  `json:"timestamp" bson:"timestamp"`
     ReplyToken      string `json:"replyToken" bson:"replyToken"`
 }

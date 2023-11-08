@@ -18,8 +18,7 @@ type Message struct {}
 func (m *Message) Index(c *gin.Context) {
     messages := make([]models.Message, 0)
 
-    println("query", c.DefaultQuery("destination", ""))
-    filter := bson.M{"destinationId": c.DefaultQuery("destination", "")}
+    filter := bson.M{"sourceId": c.DefaultQuery("source", "")}
 
     cursor, err := db.Get().Collection("messages").Find(db.GetCtx(), filter)
     if err != nil {
