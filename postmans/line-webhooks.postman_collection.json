@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "9a147aae-7155-4f48-b70f-af71605aa120",
+		"name": "line-webhooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "104245"
+	},
+	"item": [
+		{
+			"name": "message list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/messages?source=U2e181b77d9715c3931fe9afa71c5cda0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "U2e181b77d9715c3931fe9afa71c5cda0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reply",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"id\": \"654b86e8037877097b1da3c8\",\n   \"text\": \"測試 reply\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"messages"
+					]
+				},
+				"description": "找到一個 mongo 的 id，透過這 id 做 reply 的動作"
+			},
+			"response": []
+		}
+	]
+}
