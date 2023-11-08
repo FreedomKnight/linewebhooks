@@ -1,9 +1,14 @@
 build-mongo:
 	docker run --name mongo -p 27017:27017 -d mongo
 
-run: main.go
+main: main.go configs/*.go controllers/*.go models/*.go routes/*.go clients/*.go
 	go mod tidy
 	go build -o main main.go
+
+run: main
 	./main
 
-.phony: build-mongo
+clean:
+	rm -rf main
+
+.phony: build-mongo run clean
