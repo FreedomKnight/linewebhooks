@@ -9,6 +9,7 @@ import (
     "go.mongodb.org/mongo-driver/mongo/options"
 
 	"github.com/freedomknight/linewebhooks/configs"
+	"github.com/freedomknight/linewebhooks/container"
 )
 
 var database *mongo.Database
@@ -35,10 +36,19 @@ func init() {
     }
 
     database = client.Database(fmt.Sprintf("%s", name))
+    container.Provide(func () *mongo.Database {
+        return database
+    })
 }
 
 func Get() *mongo.Database {
-    return database
+    var d *mongo.Database
+
+    container.Invoke(func (db *mongo.Database) {
+        d = db
+    })
+
+    return d
 }
 
 func GetCtx() context.Context {

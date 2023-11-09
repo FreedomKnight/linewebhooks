@@ -7,6 +7,7 @@ require (
 	github.com/line/line-bot-sdk-go/v7 v7.21.0
 	github.com/spf13/viper v1.17.0
 	go.mongodb.org/mongo-driver v1.13.0
+	go.uber.org/dig v1.17.1
 )
 
 require (
